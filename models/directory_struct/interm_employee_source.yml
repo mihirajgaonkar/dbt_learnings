@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: employee_source #this name will used in models and the below details are of the source table from Snowflake
+    database: dbt_tutorial
+    schema: raw 
+    tables:
+     - name: EMPLOYEE #dbt yml is case sensitive, make sure to use the right table name from Snowflake
+
+
