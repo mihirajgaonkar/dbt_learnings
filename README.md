@@ -206,8 +206,8 @@ A DBT project consists of multiple folders, each serving a unique purpose:
     WHERE updated_at > (SELECT MAX(updated_at) FROM {{ this }})
 {% endif %}
 ```
-*in the above code we are only updating the position and department column if new records are updated post max value in the updated_at column*
-*dbt checks and updates values based on the defined unique_key i.e id column*
+- *in the above code we are only updating the position and department column if new records are updated post max value in the updated_at column*
+- *dbt checks and updates values based on the defined unique_key i.e id column*
 ---
 
 ## Environment Variables
