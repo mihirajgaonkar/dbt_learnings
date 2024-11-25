@@ -166,7 +166,7 @@ A DBT project consists of multiple folders, each serving a unique purpose:
 ### **2. Creating a Model**
 
 - Define sources in a YAML file under `models/`. 
-- Write the transformation logic in a `.sql` file (e.g., `employee_details.sql`).
+- Write the transformation logic in a `.sql` file (e.g., `employee_details.sql`). [View File](https://github.com/mihirajgaonkar/dbt_learnings/blob/main/models/directory_struct/intermediate/interm2_employee_details.sql)
 - Run the model:
   ```bash
   dbt run
@@ -174,7 +174,7 @@ A DBT project consists of multiple folders, each serving a unique purpose:
 
 ### **3. Materialization Options**
 *materializations create the type of object under snowflake (View and Table), or define the data publishing strategy (Incremental and Ephemeral)*
-*materializations can be defined in the model or can be defined in the source of yml* 
+*materializations can be defined in the model or can be defined in the source of yml*
 - Default materializations:
   - `View`
   - `Table`
@@ -207,11 +207,11 @@ A DBT project consists of multiple folders, each serving a unique purpose:
 {% endif %}
 ```
 - *in the above code we are only updating the position and department column if new records are updated post max value in the updated_at column*
-- *dbt checks and updates values based on the defined unique_key i.e id column*
+- *dbt checks and updates values based on the defined unique_key i.e id column* [View File](https://github.com/mihirajgaonkar/dbt_learnings/blob/main/models/incremental_example/incremental_employee.sql)
 ---
 
 ## Environment Variables
-*here we have created a model to filter values where sales is > variable(sales_expectation), we can define the variable in the yml file or during runtime and reference the variable in the model*
+*here we have created a model to filter values where sales is > variable(sales_expectation), we can define the variable in the yml file or during runtime and reference the variable in the model* [View File](https://github.com/mihirajgaonkar/dbt_learnings/tree/main/models/environment_variable)
 - **Defined in `dbt_project.yml`:**
   ```yaml
   vars:
@@ -230,7 +230,7 @@ A DBT project consists of multiple folders, each serving a unique purpose:
   dbt seed
   ```
 
-*in the below example we have used jinja to define the payment method and for loop and if else statement within sql to select the appropiate payment method*
+*in the below example we have used jinja to define the payment method and for loop and if else statement within sql to select the appropiate payment method* [View File](https://github.com/mihirajgaonkar/dbt_learnings/blob/main/models/raw_payments/order_payment_method_var.sql)
 - **Features:** Loops, conditionals, variable setting, reusable functions.
 - **Example:**
   ```sql
@@ -248,7 +248,10 @@ A DBT project consists of multiple folders, each serving a unique purpose:
 ---
 
 ## Macros
-*instead of using the jinja repeatadly in the models we can define it in a macro as a function and reference the function in our models as shown in the example below*
+*instead of using the jinja repeatadly in the models we can define it in a macro as a function and reference the function in our models as shown in the example below* 
+[Tax macro](https://github.com/mihirajgaonkar/dbt_learnings/blob/main/macros/get_value_with_tax.sql)
+[Tax model](https://github.com/mihirajgaonkar/dbt_learnings/blob/main/models/tax_calculation/tax_calculation_macro.sql)
+
 ### **Defining a Macro**
 
 - Example:
@@ -271,7 +274,8 @@ A DBT project consists of multiple folders, each serving a unique purpose:
   FROM {{ ref('raw_payments') }}
   GROUP BY 1
   ```
-
+## dbt tests
+## dbt documentation generation
 ---
 
 This guide summarizes DBT project setup, structure, and usage. For further refinements or specific configurations, consult the DBT documentation or reach out for assistance!
